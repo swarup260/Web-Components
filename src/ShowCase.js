@@ -1,10 +1,10 @@
 export class ShowCase extends HTMLElement {
-    constructor() {
-        super();
-        this.root = this.attachShadow({ mode: "open" });
-    }
-    set showCaseHeader(headerName) {
-        this.root.innerHTML = `
+	constructor() {
+		super()
+		this.root = this.attachShadow({ mode: "open" })
+	}
+	set showCaseHeader(headerName) {
+		this.root.innerHTML = `
         <style>
         /* Showcase */
         section#showcase {
@@ -85,6 +85,6 @@ export class ShowCase extends HTMLElement {
             <p>
                   
             </p>
-        </section> <!--  End of Showcase -->`;
-    }
+        </section> <!--  End of Showcase -->`
+	}
 }

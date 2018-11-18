@@ -1,10 +1,10 @@
 export class Accordion extends HTMLElement {
-    constructor() {
-        super();
-        this.root = this.attachShadow({ mode: "open" });
-    }
-    set Items(items) {
-        let htmlString = `
+	constructor() {
+		super()
+		this.root = this.attachShadow({ mode: "open" })
+	}
+	set Items(items) {
+		let htmlString = `
         <style>
         /* Style the buttons that are used to open and close the accordion panel */
         .accordion {
@@ -33,32 +33,32 @@ export class Accordion extends HTMLElement {
             transition: max-height 0.2s ease-out;
         } 
         </style>
-        `;
-        for (let index = 0; index < items.length; index++) {
-            htmlString += `
+        `
+		for (let index = 0; index < items.length; index++) {
+			htmlString += `
             <button class="accordion">${items[index].title}</button>
                 <div class="panel">
                     <p>${items[index].desc}</p>
                 </div>
-            `;
-        }
-        this.root.innerHTML = htmlString;
-        /* adding event listener */
-        const acc = this.root.querySelectorAll('button.accordion');
-        /* for (let index = 0; index < items.length; index++) {
+            `
+		}
+		this.root.innerHTML = htmlString
+		/* adding event listener */
+		const acc = this.root.querySelectorAll("button.accordion")
+		/* for (let index = 0; index < items.length; index++) {
                 acc[index].addEventListener('')
         } */
-        for (let i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                }
-                else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
-        }
-    }
+		for (let i = 0; i < acc.length; i++) {
+			acc[i].addEventListener("click", function () {
+				this.classList.toggle("active")
+				var panel = this.nextElementSibling
+				if (panel.style.maxHeight) {
+					panel.style.maxHeight = null
+				}
+				else {
+					panel.style.maxHeight = panel.scrollHeight + "px"
+				}
+			})
+		}
+	}
 }
